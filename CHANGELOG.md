@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 - refactor: Change name to **ics**
 - chore: lint
+- ci: Fix PR workflow to remove the file generation
 
 
 ## 0.1.0 [08/03/2026]
