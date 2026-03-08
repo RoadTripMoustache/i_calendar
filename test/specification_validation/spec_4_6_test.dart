@@ -109,7 +109,7 @@ void main() {
       });
 
       test('Should support todo with due date and priority', () {
-        final dueDate = DateTime(2024, 2, 1, 17, 0, 0);
+        final dueDate = DateTime.utc(2024, 2, 1, 17, 0, 0);
 
         final ical = ICalendar(
           productIdentifier: ProductIdentifierProperty("-//Test//EN"),
@@ -175,7 +175,7 @@ void main() {
       });
 
       test('Should support journal with description and date', () {
-        final journalDate = DateTime(2024, 1, 10, 9, 0, 0);
+        final journalDate = DateTime.utc(2024, 1, 10, 9, 0, 0);
 
         final ical = ICalendar(
           productIdentifier: ProductIdentifierProperty("-//Test//EN"),
