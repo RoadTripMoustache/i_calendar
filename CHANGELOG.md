@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: Change name to **ics**
 - chore: lint
 - ci: Fix PR workflow to remove the file generation
+- ci: Update workflows actions versions
 
 
 ## 0.1.0
