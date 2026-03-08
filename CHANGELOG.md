@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: Change name to **ics**
 - chore: lint
 
+
 ## 0.1.0 [08/03/2026]
 ### Added
 - chore: Unit tests
