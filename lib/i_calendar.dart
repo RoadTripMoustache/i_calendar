@@ -1,10 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// Copyright (c) 2023 Brian Tutovic All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-library icalendar;
+library;
 
 export 'src/calendar_component.dart';
 export 'src/calendar_multi_part_structured_value.dart';
