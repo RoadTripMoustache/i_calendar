@@ -27,7 +27,9 @@ class DateTimeStartProperty extends CalendarProperty<CalendarValue<DateTime>> {
         ),
         super(
           "DTSTART",
-          valueType == ValueType.date ? DateValue(value) : DateTimeValue(value, timeZoneIdentifier: timeZoneIdentifier),
+          valueType == ValueType.date
+              ? DateValue(value)
+              : DateTimeValue(value, timeZoneIdentifier: timeZoneIdentifier),
         );
 
   factory DateTimeStartProperty.fromCrawledProperty(CrawledProperty property) {

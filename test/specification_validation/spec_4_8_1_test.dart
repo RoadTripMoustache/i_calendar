@@ -443,8 +443,10 @@ void main() {
       expect(parsedEvent.summary?.value.value, equals("Test Event"));
       expect(parsedEvent.description?.value.value, equals("Test Description"));
       expect(parsedEvent.location?.value.value, equals("Test Location"));
-      expect(parsedEvent.categories?.first.value.values[0].value, equals("TEST"));
-      expect(parsedEvent.categories?.first.value.values[1].value, equals("CATEGORY"));
+      expect(
+          parsedEvent.categories?.first.value.values[0].value, equals("TEST"));
+      expect(parsedEvent.categories?.first.value.values[1].value,
+          equals("CATEGORY"));
     });
 
     /// Test empty and null descriptive properties

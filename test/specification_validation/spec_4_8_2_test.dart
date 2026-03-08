@@ -6,7 +6,6 @@ void main() {
   /// This section defines properties that specify date and time information for calendar components.
   /// These properties include DTSTART, DTEND, DUE, DTSTAMP, CREATED, LAST-MODIFIED, etc.
   group('4.8.2 - Date and Time Component Properties', () {
-    
     /// Test DTSTART property (Date/Time Start)
     /// Section 4.8.2.4: This property specifies when the calendar component begins
     group('4.8.2.4 - Date/Time Start Property (DTSTART)', () {
@@ -19,11 +18,12 @@ void main() {
         ical.addComponent(EventComponent(
           summary: SummaryProperty("Meeting"),
           dateTimeStart: DateTimeStartProperty(startDateTime),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('DTSTART'));
         expect(output, contains('20240315T103000Z'));
       });
@@ -37,11 +37,12 @@ void main() {
         ical.addComponent(EventComponent(
           summary: SummaryProperty("All Day Event"),
           dateTimeStart: DateTimeStartProperty(startDate),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-002@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-002@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('DTSTART;VALUE=DATE-TIME:20240315'));
       });
 
@@ -57,11 +58,12 @@ void main() {
             startDateTime,
             timeZoneIdentifier: "America/New_York",
           ),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-003@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-003@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('DTSTART'));
         expect(output, contains('TZID=America/New_York:20240315T103000'));
       });
@@ -81,11 +83,12 @@ void main() {
           summary: SummaryProperty("Meeting"),
           dateTimeStart: DateTimeStartProperty(startDateTime),
           end: DateTimeEndProperty(endDateTime),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('DTSTART;VALUE=DATE-TIME:20240315T103000'));
         expect(output, contains('DTEND;VALUE=DATE-TIME:20240315T113000'));
       });
@@ -100,12 +103,13 @@ void main() {
         ical.addComponent(EventComponent(
           summary: SummaryProperty("Multi-day Event"),
           dateTimeStart: DateTimeStartProperty(startDate),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-002@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-002@example.com"),
           end: DateTimeEndProperty(endDate),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('DTSTART;VALUE=DATE-TIME:20240315'));
         expect(output, contains('DTEND;VALUE=DATE-TIME:20240316'));
       });
@@ -123,11 +127,12 @@ void main() {
         ical.addComponent(TodoComponent(
           summary: SummaryProperty("Complete Report"),
           dateTimeDue: DateTimeDueProperty(dueDateTime),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "todo-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "todo-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('DUE;VALUE=DATE-TIME:20240320T170000'));
       });
 
@@ -140,11 +145,12 @@ void main() {
         ical.addComponent(TodoComponent(
           summary: SummaryProperty("Submit Application"),
           dateTimeDue: DateTimeDueProperty(dueDate),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "todo-002@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "todo-002@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('DUE;VALUE=DATE-TIME:20240320'));
       });
     });
@@ -161,11 +167,12 @@ void main() {
         ical.addComponent(EventComponent(
           summary: SummaryProperty("Meeting"),
           dateTimeStamp: DateTimeStampProperty(stampDateTime),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('DTSTAMP:20240310T080000'));
       });
 
@@ -178,11 +185,12 @@ void main() {
         ical.addComponent(EventComponent(
           summary: SummaryProperty("UTC Meeting"),
           dateTimeStamp: DateTimeStampProperty(stampDateTime),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-002@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-002@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('DTSTAMP:20240310T080000Z'));
       });
     });
@@ -199,11 +207,12 @@ void main() {
         ical.addComponent(EventComponent(
           summary: SummaryProperty("Created Event"),
           dateTimeCreated: DateTimeCreatedProperty(createdDateTime),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('CREATED:20240305T143000'));
       });
     });
@@ -220,11 +229,12 @@ void main() {
         ical.addComponent(EventComponent(
           summary: SummaryProperty("Modified Event"),
           lastModified: LastModifiedProperty(modifiedDateTime),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('LAST-MODIFIED:20240312T164500'));
       });
     });
@@ -241,11 +251,12 @@ void main() {
         ical.addComponent(TodoComponent(
           summary: SummaryProperty("Completed Task"),
           dateTimeCompleted: DateTimeCompletedProperty(completedDateTime),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "todo-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "todo-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('COMPLETED:20240318T153000'));
       });
     });
@@ -260,11 +271,12 @@ void main() {
       ical.addComponent(EventComponent(
         summary: SummaryProperty("New Year Event"),
         dateTimeStart: DateTimeStartProperty(dateTime),
-        uniqueIdentifier: UniqueIdentifierProperty(value: "newyear-2024@example.com"),
+        uniqueIdentifier:
+            UniqueIdentifierProperty(value: "newyear-2024@example.com"),
       ));
-      
+
       final output = ical.toString();
-      
+
       // Should format as YYYYMMDDTHHMMSS
       expect(output, contains('DTSTART;VALUE=DATE-TIME:20241231T235959Z'));
     });
@@ -279,11 +291,12 @@ void main() {
       ical.addComponent(EventComponent(
         summary: SummaryProperty("New Year Day"),
         dateTimeStart: DateTimeStartProperty(date),
-        uniqueIdentifier: UniqueIdentifierProperty(value: "newyear-day-2024@example.com"),
+        uniqueIdentifier:
+            UniqueIdentifierProperty(value: "newyear-day-2024@example.com"),
       ));
-      
+
       final output = ical.toString();
-      
+
       // Should format as YYYYMMDD with VALUE=DATE parameter
       expect(output, contains('DTSTART;VALUE=DATE-TIME:20240101'));
     });
@@ -294,7 +307,7 @@ void main() {
       final startDateTime = DateTime.utc(2024, 3, 15, 10, 0, 0);
       final endDateTime = DateTime.utc(2024, 3, 15, 11, 0, 0);
       final modifiedDateTime = DateTime.utc(2024, 3, 10, 14, 30, 0);
-      
+
       final ical = ICalendar(
         productIdentifier: ProductIdentifierProperty("-//Test//EN"),
         version: VersionProperty(),
@@ -305,11 +318,12 @@ void main() {
         dateTimeStart: DateTimeStartProperty(startDateTime),
         end: DateTimeEndProperty(endDateTime),
         lastModified: LastModifiedProperty(modifiedDateTime),
-        uniqueIdentifier: UniqueIdentifierProperty(value: "complex-event@example.com"),
+        uniqueIdentifier:
+            UniqueIdentifierProperty(value: "complex-event@example.com"),
       ));
-      
+
       final output = ical.toString();
-      
+
       expect(output, contains('CREATED:20240301T090000'));
       expect(output, contains('DTSTART;VALUE=DATE-TIME:20240315T100000'));
       expect(output, contains('DTEND;VALUE=DATE-TIME:20240315T110000'));
@@ -320,7 +334,7 @@ void main() {
     test('Should parse date/time properties correctly', () {
       final startDateTime = DateTime.utc(2024, 6, 15, 14, 30, 0);
       final endDateTime = DateTime.utc(2024, 6, 15, 15, 30, 0);
-      
+
       final originalIcal = ICalendar(
         productIdentifier: ProductIdentifierProperty("-//Test//EN"),
         version: VersionProperty(),
@@ -329,15 +343,17 @@ void main() {
         summary: SummaryProperty("Test Event"),
         dateTimeStart: DateTimeStartProperty(startDateTime),
         end: DateTimeEndProperty(endDateTime),
-        uniqueIdentifier: UniqueIdentifierProperty(value: "test-event@example.com"),
+        uniqueIdentifier:
+            UniqueIdentifierProperty(value: "test-event@example.com"),
       ));
-      
+
       final output = originalIcal.toString();
       final parsedCalendars = ICalendar.fromICalendarString(output);
-      
+
       expect(parsedCalendars.length, equals(1));
-      final parsedEvent = parsedCalendars.first.components.first as EventComponent;
-      
+      final parsedEvent =
+          parsedCalendars.first.components.first as EventComponent;
+
       expect(parsedEvent.dateTimeStart?.value.value, equals(startDateTime));
     });
 
@@ -351,11 +367,12 @@ void main() {
       ical.addComponent(EventComponent(
         summary: SummaryProperty("UTC Event"),
         dateTimeStart: DateTimeStartProperty(utcDateTime),
-        uniqueIdentifier: UniqueIdentifierProperty(value: "utc-event@example.com"),
+        uniqueIdentifier:
+            UniqueIdentifierProperty(value: "utc-event@example.com"),
       ));
-      
+
       final output = ical.toString();
-      
+
       // UTC times should end with 'Z'
       expect(output, contains('DTSTART;VALUE=DATE-TIME:20240704T120000Z'));
     });

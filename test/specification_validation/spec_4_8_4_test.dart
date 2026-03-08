@@ -6,7 +6,6 @@ void main() {
   /// This section defines properties that specify relationships between calendar components
   /// and other entities. These properties include ATTENDEE, ORGANIZER, RELATED-TO, etc.
   group('4.8.4 - Relationship Component Properties', () {
-    
     /// Test ATTENDEE property
     /// Section 4.8.4.1: This property defines an "Attendee" within a calendar component
     group('4.8.4.1 - Attendee Property (ATTENDEE)', () {
@@ -20,11 +19,12 @@ void main() {
           attendees: [
             AttendeeProperty("john.doe@example.com"),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('ATTENDEE:MAILTO:john.doe@example.com'));
       });
 
@@ -41,12 +41,14 @@ void main() {
               commonName: "John Doe",
             ),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
-        expect(output, contains('ATTENDEE;CN=John Doe:MAILTO:john.doe@example.com'));
+
+        expect(output,
+            contains('ATTENDEE;CN=John Doe:MAILTO:john.doe@example.com'));
       });
 
       test('Should support ATTENDEE with calendar user type parameter', () {
@@ -62,12 +64,14 @@ void main() {
               userType: CalendarUserType.individual,
             ),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
-        expect(output, contains('ATTENDEE;CUTYPE=INDIVIDUAL:MAILTO:john.doe@example.com'));
+
+        expect(output,
+            contains('ATTENDEE;CUTYPE=INDIVIDUAL:MAILTO:john.doe@example.com'));
       });
 
       test('Should support ATTENDEE with participation role parameter', () {
@@ -83,12 +87,14 @@ void main() {
               participationRoleType: ParticipationRoleType.chair,
             ),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
-        expect(output, contains('ATTENDEE;ROLE=CHAIR:MAILTO:chair@example.com'));
+
+        expect(
+            output, contains('ATTENDEE;ROLE=CHAIR:MAILTO:chair@example.com'));
       });
 
       test('Should support ATTENDEE with participation status parameter', () {
@@ -104,12 +110,14 @@ void main() {
               participationStatusType: ParticipationStatusType.accepted,
             ),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
-        expect(output, contains('ATTENDEE;PARTSTAT=ACCEPTED:MAILTO:attendee@example.com'));
+
+        expect(output,
+            contains('ATTENDEE;PARTSTAT=ACCEPTED:MAILTO:attendee@example.com'));
       });
 
       test('Should support ATTENDEE with RSVP expectation parameter', () {
@@ -125,12 +133,14 @@ void main() {
               rsvpExpectation: true,
             ),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
-        expect(output, contains('ATTENDEE;RSVP=TRUE:MAILTO:attendee@example.com'));
+
+        expect(
+            output, contains('ATTENDEE;RSVP=TRUE:MAILTO:attendee@example.com'));
       });
 
       test('Should support ATTENDEE with multiple parameters', () {
@@ -150,11 +160,12 @@ void main() {
               rsvpExpectation: true,
             ),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('ATTENDEE;'));
         expect(output, contains('CN=John Doe'));
         expect(output, contains('CUTYPE=INDIVIDUAL'));
@@ -188,11 +199,12 @@ void main() {
               participationRoleType: ParticipationRoleType.optParticipant,
             ),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('CN=John Doe'));
         expect(output, contains('CN=Jane Smith'));
         expect(output, contains('CN=Bob Wilson'));
@@ -213,11 +225,12 @@ void main() {
         ical.addComponent(EventComponent(
           summary: SummaryProperty("Meeting"),
           organizer: OrganizerProperty("organizer@example.com"),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('ORGANIZER:MAILTO:organizer@example.com'));
       });
 
@@ -232,12 +245,16 @@ void main() {
             "organizer@example.com",
             commonName: "Meeting Organizer",
           ),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
-        expect(output, contains('ORGANIZER;CN=Meeting Organizer:MAILTO:organizer@example.com'));
+
+        expect(
+            output,
+            contains(
+                'ORGANIZER;CN=Meeting Organizer:MAILTO:organizer@example.com'));
       });
 
       test('Should support ORGANIZER with sent-by parameter', () {
@@ -252,11 +269,12 @@ void main() {
             commonName: "Boss",
             sentByEmail: "assistant@example.com",
           ),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('ORGANIZER;'));
         expect(output, contains('CN=Boss'));
         expect(output, contains('SENT-BY="MAILTO:assistant@example.com"'));
@@ -273,16 +291,21 @@ void main() {
           organizer: OrganizerProperty(
             "organizer@example.com",
             commonName: "Organizer",
-            directoryEntryUri: Uri.parse("ldap://example.com/cn=organizer,dc=example,dc=com"),
+            directoryEntryUri:
+                Uri.parse("ldap://example.com/cn=organizer,dc=example,dc=com"),
           ),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "event-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "event-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('ORGANIZER;'));
         expect(output, contains('CN=Organizer'));
-        expect(output, contains('DIR="ldap://example.com/cn=organizer,dc=example,dc=com"'));
+        expect(
+            output,
+            contains(
+                'DIR="ldap://example.com/cn=organizer,dc=example,dc=com"'));
         expect(output, contains(':MAILTO:organizer@example.com'));
       });
     });
@@ -300,11 +323,12 @@ void main() {
           relatedTo: [
             RelatedToProperty("original-meeting-001@example.com"),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "followup-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "followup-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('RELATED-TO:original-meeting-001@example.com'));
       });
 
@@ -321,12 +345,14 @@ void main() {
               type: RelationshipType.parent,
             ),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "child-task-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "child-task-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
-        expect(output, contains('RELATED-TO;RELTYPE=PARENT:parent-task-001@example.com'));
+
+        expect(output,
+            contains('RELATED-TO;RELTYPE=PARENT:parent-task-001@example.com'));
       });
 
       test('Should support different relationship types', () {
@@ -349,12 +375,16 @@ void main() {
                 type: relType,
               ),
             ],
-            uniqueIdentifier: UniqueIdentifierProperty(value: "event-${relType.name}@example.com"),
+            uniqueIdentifier: UniqueIdentifierProperty(
+                value: "event-${relType.name}@example.com"),
           ));
-          
+
           final output = ical.toString();
-          
-          expect(output, contains('RELATED-TO;RELTYPE=${relType.name.toUpperCase()}:related-event@example.com'));
+
+          expect(
+              output,
+              contains(
+                  'RELATED-TO;RELTYPE=${relType.name.toUpperCase()}:related-event@example.com'));
         }
       });
     });
@@ -370,11 +400,12 @@ void main() {
         ical.addComponent(EventComponent(
           summary: SummaryProperty("Conference"),
           url: URLProperty(Uri.parse("https://example.com/conference")),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "conference-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "conference-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('URL:https://example.com/conference'));
       });
 
@@ -394,11 +425,12 @@ void main() {
           ical.addComponent(EventComponent(
             summary: SummaryProperty("Event with URL"),
             url: URLProperty(Uri.parse(url)),
-            uniqueIdentifier: UniqueIdentifierProperty(value: "event-url-${urls.indexOf(url)}@example.com"),
+            uniqueIdentifier: UniqueIdentifierProperty(
+                value: "event-url-${urls.indexOf(url)}@example.com"),
           ));
-          
+
           final output = ical.toString();
-          
+
           expect(output, contains('URL:$url'));
         }
       });
@@ -414,11 +446,12 @@ void main() {
         );
         ical.addComponent(EventComponent(
           summary: SummaryProperty("Meeting"),
-          uniqueIdentifier: UniqueIdentifierProperty(value: "unique-meeting-001@example.com"),
+          uniqueIdentifier:
+              UniqueIdentifierProperty(value: "unique-meeting-001@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('UID:unique-meeting-001@example.com'));
       });
 
@@ -439,9 +472,9 @@ void main() {
             summary: SummaryProperty("Event with UID"),
             uniqueIdentifier: UniqueIdentifierProperty(value: uid),
           ));
-          
+
           final output = ical.toString();
-          
+
           expect(output, contains('UID:$uid'));
         }
       });
@@ -472,20 +505,33 @@ void main() {
             participationRoleType: ParticipationRoleType.optParticipant,
           ),
         ],
-        relatedTo: [RelatedToProperty(
-          "parent-meeting@example.com",
-          type: RelationshipType.parent,
-        ),],
+        relatedTo: [
+          RelatedToProperty(
+            "parent-meeting@example.com",
+            type: RelationshipType.parent,
+          ),
+        ],
         url: URLProperty(Uri.parse("https://example.com/meeting-details")),
-        uniqueIdentifier: UniqueIdentifierProperty(value: "complex-meeting@example.com"),
+        uniqueIdentifier:
+            UniqueIdentifierProperty(value: "complex-meeting@example.com"),
       ));
-      
+
       final output = ical.toString();
-      
-      expect(output, contains('ORGANIZER;CN=Meeting Organizer:MAILTO:organizer@example.com'));
-      expect(output, contains('ATTENDEE;CN=Attendee One;ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:attendee1@example.com'));
-      expect(output, contains('ATTENDEE;CN=Attendee Two;ROLE=OPT-PARTICIPANT:MAILTO:attendee2@example.com'));
-      expect(output, contains('RELATED-TO;RELTYPE=PARENT:parent-meeting@example.com'));
+
+      expect(
+          output,
+          contains(
+              'ORGANIZER;CN=Meeting Organizer:MAILTO:organizer@example.com'));
+      expect(
+          output,
+          contains(
+              'ATTENDEE;CN=Attendee One;ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:attendee1@example.com'));
+      expect(
+          output,
+          contains(
+              'ATTENDEE;CN=Attendee Two;ROLE=OPT-PARTICIPANT:MAILTO:attendee2@example.com'));
+      expect(output,
+          contains('RELATED-TO;RELTYPE=PARENT:parent-meeting@example.com'));
       expect(output, contains('URL:https://example.com/meeting-details'));
       expect(output, contains('UID:complex-meeting@example.com'));
     });
@@ -509,21 +555,26 @@ void main() {
             participationRoleType: ParticipationRoleType.reqParticipant,
           ),
         ],
-        uniqueIdentifier: UniqueIdentifierProperty(value: "test-meeting@example.com"),
+        uniqueIdentifier:
+            UniqueIdentifierProperty(value: "test-meeting@example.com"),
       ));
-      
+
       final output = originalIcal.toString();
       final parsedCalendars = ICalendar.fromICalendarString(output);
-      
+
       expect(parsedCalendars.length, equals(1));
-      final parsedEvent = parsedCalendars.first.components.first as EventComponent;
-      
-      expect(parsedEvent.organizer?.value.value, equals("organizer@example.com"));
+      final parsedEvent =
+          parsedCalendars.first.components.first as EventComponent;
+
+      expect(
+          parsedEvent.organizer?.value.value, equals("organizer@example.com"));
       expect(parsedEvent.organizer?.commonName, equals("Test Organizer"));
       expect(parsedEvent.attendees?.length, equals(1));
-      expect(parsedEvent.attendees?.first.value.value, equals("attendee@example.com"));
+      expect(parsedEvent.attendees?.first.value.value,
+          equals("attendee@example.com"));
       expect(parsedEvent.attendees?.first.commonName, equals("Test Attendee"));
-      expect(parsedEvent.uniqueIdentifier?.value.value, equals("test-meeting@example.com"));
+      expect(parsedEvent.uniqueIdentifier?.value.value,
+          equals("test-meeting@example.com"));
     });
 
     /// Test calendar user types
@@ -548,11 +599,12 @@ void main() {
               userType: userType,
             ),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "meeting-${userType.name}@example.com"),
+          uniqueIdentifier: UniqueIdentifierProperty(
+              value: "meeting-${userType.name}@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('CUTYPE=${userType.name.toUpperCase()}'));
       }
     });
@@ -580,11 +632,12 @@ void main() {
               participationStatusType: status,
             ),
           ],
-          uniqueIdentifier: UniqueIdentifierProperty(value: "meeting-${status.name}@example.com"),
+          uniqueIdentifier: UniqueIdentifierProperty(
+              value: "meeting-${status.name}@example.com"),
         ));
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('PARTSTAT=${status.value}'));
       }
     });

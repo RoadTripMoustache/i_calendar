@@ -7,18 +7,18 @@ void main() {
   /// This section defines the calendar properties that provide information
   /// about the calendar as a whole, rather than individual calendar components.
   group('4.2.1 - Calendar Properties', () {
-    
     /// Test PRODID property (Product Identifier)
     /// This property specifies the identifier for the product that created the calendar
     test('Should include required PRODID property', () {
       final ical = ICalendar(
-        productIdentifier: ProductIdentifierProperty("-//Test Company//Test Product//EN"),
+        productIdentifier:
+            ProductIdentifierProperty("-//Test Company//Test Product//EN"),
         version: VersionProperty(),
       );
       ical.addComponent(EventComponent());
-      
+
       final output = ical.toString();
-      
+
       expect(output, contains('PRODID:-//Test Company//Test Product//EN'));
     });
 
@@ -31,9 +31,9 @@ void main() {
         version: VersionProperty(),
       );
       ical.addComponent(EventComponent());
-      
+
       final output = ical.toString();
-      
+
       expect(output, contains('VERSION:2.0'));
     });
 
@@ -46,9 +46,9 @@ void main() {
         calendarScale: CalendarScaleProperty(CalendarScaleType.gregorian),
       );
       ical.addComponent(EventComponent());
-      
+
       final output = ical.toString();
-      
+
       expect(output, contains('CALSCALE:GREGORIAN'));
     });
 
@@ -60,9 +60,9 @@ void main() {
         version: VersionProperty(),
       );
       ical.addComponent(EventComponent());
-      
+
       final output = ical.toString();
-      
+
       expect(output, contains('CALSCALE:GREGORIAN'));
     });
 
@@ -75,9 +75,9 @@ void main() {
         method: MethodProperty(MethodType.publish),
       );
       ical.addComponent(EventComponent());
-      
+
       final output = ical.toString();
-      
+
       expect(output, contains('METHOD:PUBLISH'));
     });
 
@@ -97,9 +97,9 @@ void main() {
           method: MethodProperty(method),
         );
         ical.addComponent(EventComponent());
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('METHOD:${method.toUpperCase()}'));
       }
     });
@@ -112,9 +112,9 @@ void main() {
         version: VersionProperty(),
       );
       ical.addComponent(EventComponent());
-      
+
       final output = ical.toString();
-      
+
       expect(output, isNot(contains('METHOD:')));
     });
 
@@ -128,18 +128,19 @@ void main() {
         method: MethodProperty(MethodType.publish),
       );
       ical.addComponent(EventComponent());
-      
+
       final output = ical.toString();
       final lines = output.split('\n');
-      
+
       // Find property lines (excluding BEGIN/END)
-      final propertyLines = lines.where((line) => 
-        line.startsWith('PRODID:') || 
-        line.startsWith('VERSION:') || 
-        line.startsWith('CALSCALE:') || 
-        line.startsWith('METHOD:')
-      ).toList();
-      
+      final propertyLines = lines
+          .where((line) =>
+              line.startsWith('PRODID:') ||
+              line.startsWith('VERSION:') ||
+              line.startsWith('CALSCALE:') ||
+              line.startsWith('METHOD:'))
+          .toList();
+
       expect(propertyLines.length, equals(4));
       expect(propertyLines[0], startsWith('PRODID:'));
       expect(propertyLines[1], startsWith('VERSION:'));
@@ -162,9 +163,9 @@ void main() {
           version: VersionProperty(),
         );
         ical.addComponent(EventComponent());
-        
+
         final output = ical.toString();
-        
+
         expect(output, contains('PRODID:$prodId'));
       }
     });
@@ -173,7 +174,8 @@ void main() {
     /// Verify that calendars with all properties can be parsed correctly
     test('Should parse calendar with all properties correctly', () {
       final originalIcal = ICalendar(
-        productIdentifier: ProductIdentifierProperty("-//Test Company//Test Product//EN"),
+        productIdentifier:
+            ProductIdentifierProperty("-//Test Company//Test Product//EN"),
         version: VersionProperty(),
         calendarScale: CalendarScaleProperty(CalendarScaleType.gregorian),
         method: MethodProperty(MethodType.publish),
@@ -181,16 +183,18 @@ void main() {
       originalIcal.addComponent(EventComponent(
         summary: SummaryProperty("Test Event"),
       ));
-      
+
       final output = originalIcal.toString();
       final parsedCalendars = ICalendar.fromICalendarString(output);
-      
+
       expect(parsedCalendars.length, equals(1));
       final parsedIcal = parsedCalendars.first;
-      
-      expect(parsedIcal.productIdentifier.value.value, equals("-//Test Company//Test Product//EN"));
+
+      expect(parsedIcal.productIdentifier.value.value,
+          equals("-//Test Company//Test Product//EN"));
       expect(parsedIcal.version.value.value, equals("2.0"));
-      expect(parsedIcal.calendarScale?.value.value, equals(CalendarScaleType.gregorian.value));
+      expect(parsedIcal.calendarScale?.value.value,
+          equals(CalendarScaleType.gregorian.value));
       expect(parsedIcal.method?.value.value, equals(MethodType.publish));
     });
 

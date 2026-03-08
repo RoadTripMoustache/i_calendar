@@ -16,7 +16,9 @@ abstract class CalendarProperty<ValueType extends CalendarValue>
   @override
   String toString() {
     var parameters = getParameters();
-    parameters.sort((a, b) => a.parameterName.compareTo(b.parameterName),);
+    parameters.sort(
+      (a, b) => a.parameterName.compareTo(b.parameterName),
+    );
 
     final res = StringBuffer();
     res.writeAll([
