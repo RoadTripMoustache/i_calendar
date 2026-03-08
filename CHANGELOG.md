@@ -7,4 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Updated
-- chore: Update librairies
+- chore: Update libraries
+- chore: Unit tests
+
+---
+
+# Old Changelog
+# 0.1.0
+
+- Initial Release
+
+# 0.1.3
+
+- Improve list handling regex
+- Fix quoted parameter lists
