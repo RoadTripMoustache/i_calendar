@@ -17,5 +17,5 @@ class DateValue extends CalendarValue<DateTime> {
 }
 
 class DateParameterValue extends DateValue with CalendarParameterValue {
-  DateParameterValue(DateTime value) : super(value);
+  DateParameterValue(super.value);
 }

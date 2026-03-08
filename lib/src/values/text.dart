@@ -32,5 +32,5 @@ class TextValue extends CalendarValue<String> {
 }
 
 class TextParameterValue extends TextValue with CalendarParameterValue {
-  TextParameterValue(String value) : super(value);
+  TextParameterValue(super.value);
 }

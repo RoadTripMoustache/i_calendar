@@ -1,4 +1,4 @@
-name: i_calendar
+name: ics
 version: 0.1.0
 description: >-
   Serializes and Deserializes ICalendar text. Offers 99+% coverage of the ICalendar RFC.

@@ -10,5 +10,5 @@ class UriValue extends CalendarValue<Uri> {
 }
 
 class UriParameterValue extends UriValue with CalendarParameterValue {
-  UriParameterValue(Uri value) : super(value);
+  UriParameterValue(super.value);
 }

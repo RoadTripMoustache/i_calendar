@@ -15,5 +15,5 @@ class BooleanValue extends CalendarValue<bool> {
 }
 
 class BooleanParameterValue extends BooleanValue with CalendarParameterValue {
-  BooleanParameterValue(bool value) : super(value);
+  BooleanParameterValue(super.value);
 }

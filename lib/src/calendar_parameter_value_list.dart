@@ -3,7 +3,7 @@ import 'calendar_value_list.dart';
 
 class CalendarParameterValueList<T extends CalendarParameterValue>
     extends CalendarValueList<T> with CalendarParameterValue {
-  CalendarParameterValueList(List<T> values) : super(values);
+  CalendarParameterValueList(super.values);
 
   @override
   String toString() {
