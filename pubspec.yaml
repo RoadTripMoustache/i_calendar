@@ -1,0 +1,41 @@
+name: icalendar
+version: 0.1.3
+description: >-
+  Serializes and Deserializes ICalendar text. Offers 99+% coverage of the ICalendar RFC.
+homepage: https://gitlab.com/powerbuilding/opensource/mobile/support-libraries/icalendar-dart
+repository: https://gitlab.com/powerbuilding/opensource/mobile/support-libraries/icalendar-dart
+issue_tracker: https://gitlab.com/powerbuilding/opensource/mobile/support-libraries/icalendar-dart/-/issues
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+funding:
+  - https://www.buymeacoffee.com/btutovic
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+index_generator:
+  default_name: icalendar
+  indexes:
+    - path: lib
+      include:
+        - "src/**"
+      disclaimer: true
+      comments: |
+        Copyright (c) 2023 Brian Tutovic All rights reserved.
+        Use of this source code is governed by a BSD-style
+        license that can be found in the LICENSE file.
+
+dependencies:
+  email_validator: ^2.1.17
+  equatable: ^2.0.5
+  intl: ^0.18.0
+  nanoid: ^1.0.0
+
+dev_dependencies:
+  flutter_lints: ^1.0.4
+  index_generator: ^3.3.3
+  test: ^1.19.3
