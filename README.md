@@ -1,5 +1,7 @@
 # I_Calendar
 
+![Pub Version](https://img.shields.io/pub/v/i_calendar) [![GitHub stars](https://img.shields.io/github/stars/RoadTripMoustache/i_calendar?style=social)](https://github.com/psk907/fluttermoji/stargazers)
+
 > Code based on https://gitlab.com/powerbuilding/opensource/mobile/support-libraries/icalendar-dart
 > 
 > Thanks to [Brian Tutovic](https://gitlab.com/brian.tutovic) for this 1st version !
