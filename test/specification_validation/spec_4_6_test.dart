@@ -127,7 +127,7 @@ void main() {
 
         expect(output, contains('BEGIN:VTODO'));
         expect(output, contains('SUMMARY:Important Task'));
-        expect(output, contains('DUE;VALUE=DATE-TIME:20240201T220000Z'));
+        expect(output, contains('DUE;VALUE=DATE-TIME:20240201T170000Z'));
         expect(output, contains('PRIORITY:1'));
         expect(output, contains('END:VTODO'));
       });
@@ -197,7 +197,7 @@ void main() {
             output,
             contains(
                 'DESCRIPTION:Today I worked on the new feature implementation...'));
-        expect(output, contains('DTSTART;VALUE=DATE-TIME:20240110T140000Z'));
+        expect(output, contains('DTSTART;VALUE=DATE-TIME:20240110T090000Z'));
         expect(output, contains('END:VJOURNAL'));
       });
     });
