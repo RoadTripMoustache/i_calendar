@@ -107,3 +107,8 @@ void main() {
 }
 ```
 
+---
+
+## Contributions
+
+If you want to contribute to this project, you're welcome ! All the contribution process is describe [here](CONTRIBUTING.md).
