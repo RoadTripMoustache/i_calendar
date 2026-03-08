@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 - chore: Update libraries
 - fix: Make sure to use the Timezone in the datetime
+- refactor: Sort calendar property parameters alphabetically
 
 ---
 
