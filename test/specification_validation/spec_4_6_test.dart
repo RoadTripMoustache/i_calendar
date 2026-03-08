@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:i_calendar/i_calendar.dart';
+import 'package:ics/ics.dart';
 
 void main() {
   /// RFC 2445 Section 4.6: Calendar Components
@@ -109,7 +109,7 @@ void main() {
       });
 
       test('Should support todo with due date and priority', () {
-        final dueDate = DateTime(2024, 2, 1, 17, 0, 0);
+        final dueDate = DateTime.utc(2024, 2, 1, 17, 0, 0);
 
         final ical = ICalendar(
           productIdentifier: ProductIdentifierProperty("-//Test//EN"),
@@ -127,7 +127,7 @@ void main() {
 
         expect(output, contains('BEGIN:VTODO'));
         expect(output, contains('SUMMARY:Important Task'));
-        expect(output, contains('DUE;VALUE=DATE-TIME:20240201T220000Z'));
+        expect(output, contains('DUE;VALUE=DATE-TIME:20240201T170000Z'));
         expect(output, contains('PRIORITY:1'));
         expect(output, contains('END:VTODO'));
       });
@@ -175,7 +175,7 @@ void main() {
       });
 
       test('Should support journal with description and date', () {
-        final journalDate = DateTime(2024, 1, 10, 9, 0, 0);
+        final journalDate = DateTime.utc(2024, 1, 10, 9, 0, 0);
 
         final ical = ICalendar(
           productIdentifier: ProductIdentifierProperty("-//Test//EN"),
@@ -197,7 +197,7 @@ void main() {
             output,
             contains(
                 'DESCRIPTION:Today I worked on the new feature implementation...'));
-        expect(output, contains('DTSTART;VALUE=DATE-TIME:20240110T140000Z'));
+        expect(output, contains('DTSTART;VALUE=DATE-TIME:20240110T090000Z'));
         expect(output, contains('END:VJOURNAL'));
       });
     });

@@ -195,36 +195,21 @@ class RecurrenceRuleValue
 class RecurrenceRuleParameterValue extends RecurrenceRuleValue
     with CalendarParameterValue {
   RecurrenceRuleParameterValue({
-    required RecurrenceFrequency frequency,
-    int interval = RecurrenceRule.defaultInterval,
-    RecurrenceWeekday startOfWorkWeek = RecurrenceRule.defaultStartOfWorkWeek,
-    DateTime? until,
-    int? count,
-    Set<int>? bySeconds,
-    Set<int>? byMinutes,
-    Set<int>? byHours,
-    Set<RecurrenceByDay>? byDays,
-    Set<int>? byMonthDays,
-    Set<int>? byYearDays,
-    Set<int>? byWeekNumbers,
-    Set<int>? byMonths,
-    Set<int>? bySetPositions,
-  }) : super(
-          frequency: frequency,
-          interval: interval,
-          startOfWorkWeek: startOfWorkWeek,
-          until: until,
-          count: count,
-          bySeconds: bySeconds,
-          byMinutes: byMinutes,
-          byHours: byHours,
-          byDays: byDays,
-          byMonthDays: byMonthDays,
-          byYearDays: byYearDays,
-          byWeekNumbers: byWeekNumbers,
-          byMonths: byMonths,
-          bySetPositions: bySetPositions,
-        );
+    required super.frequency,
+    super.interval = RecurrenceRule.defaultInterval,
+    super.startOfWorkWeek = RecurrenceRule.defaultStartOfWorkWeek,
+    super.until,
+    super.count,
+    super.bySeconds,
+    super.byMinutes,
+    super.byHours,
+    super.byDays,
+    super.byMonthDays,
+    super.byYearDays,
+    super.byWeekNumbers,
+    super.byMonths,
+    super.bySetPositions,
+  });
 }
 
 class _FreqValuePart extends CalendarStructuredValuePart<RecurrenceFrequency> {

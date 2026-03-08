@@ -1,4 +1,4 @@
-# I_Calendar
+# ICS
 
 ![Pub Version](https://img.shields.io/pub/v/i_calendar) [![GitHub stars](https://img.shields.io/github/stars/RoadTripMoustache/i_calendar?style=social)](https://github.com/psk907/fluttermoji/stargazers)
 
@@ -14,7 +14,7 @@ Serializes and Deserializes ICalendar text. Offers 99+% coverage of the [ICalend
 
 ## How-to use it ?
 
-To use this plugin, add `i_calendar` as a dependency in your pubspec.yaml file.
+To use this plugin, add `ics` as a dependency in your pubspec.yaml file.
 
 Most of the objects have built-in asserts that "assert" the RFC2445 spec. The idea is we don't break production code, we just throw out the stuff that doesn't make sense. There's a lot of different custom implementations of the ICalendar spec out there, if we threw an exception on every bad ICalendar object as we deserialized we wouldn't be able to deserialize anything. Maybe an opt-in "Strict Mode" flag could be on the cards in the future though.
 
@@ -23,7 +23,7 @@ Most of the objects have built-in asserts that "assert" the RFC2445 spec. The id
 **Note:** Deserialization will add "no-op" default parameter values for free (where applicable) to better adhere to the RFC2445 spec. We won't modify any values, just assert what's already there.
 
 ```dart
-import 'package:i_calendar/i_calendar.dart';
+import 'package:ics/ics.dart';
 
 final testString = """
 BEGIN:VCALENDAR
@@ -60,7 +60,7 @@ void main() {
 ### Serialization
 
 ```dart
-import 'package:i_calendar/i_calendar.dart';
+import 'package:ics/ics.dart';
 
 void main() {
   final ical = ICalendar(
@@ -107,3 +107,8 @@ void main() {
 }
 ```
 
+---
+
+## Contributions
+
+If you want to contribute to this project, you're welcome ! All the contribution process is describe [here](CONTRIBUTING.md).

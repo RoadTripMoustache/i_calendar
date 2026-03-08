@@ -1,6 +1,5 @@
-import 'package:i_calendar/src/enum/method_type.dart';
 import 'package:test/test.dart';
-import 'package:i_calendar/i_calendar.dart';
+import 'package:ics/ics.dart';
 
 void main() {
   /// RFC 2445 Section 4.2.1: Calendar Properties

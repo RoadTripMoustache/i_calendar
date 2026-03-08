@@ -141,18 +141,11 @@ class PeriodOfTimeValue extends CalendarValue<PeriodOfTime> {
 class PeriodOfTimeParameterValue extends PeriodOfTimeValue
     with CalendarParameterValue {
   PeriodOfTimeParameterValue({
-    required DateTime start,
-    DateTime? end,
-    Duration? duration,
-    String? timeZoneIdentifier,
-    bool fixed = _defaultFixed,
-    bool durationInWeeks = _defaultDurationInWeeks,
-  }) : super(
-          start: start,
-          end: end,
-          duration: duration,
-          timeZoneIdentifier: timeZoneIdentifier,
-          fixed: fixed,
-          durationInWeeks: durationInWeeks,
-        );
+    required super.start,
+    super.end,
+    super.duration,
+    super.timeZoneIdentifier,
+    super.fixed = _defaultFixed,
+    super.durationInWeeks = _defaultDurationInWeeks,
+  });
 }

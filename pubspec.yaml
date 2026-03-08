@@ -1,5 +1,5 @@
-name: i_calendar
-version: 0.1.0
+name: ics
+version: 0.2.0
 description: >-
   Serializes and Deserializes ICalendar text. Offers 99+% coverage of the ICalendar RFC.
 homepage: https://github.com/RoadTripMoustache/i_calendar

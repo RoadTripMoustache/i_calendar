@@ -16,6 +16,7 @@ export 'src/components/free_busy.dart';
 export 'src/components/journal.dart';
 export 'src/components/time_zone.dart';
 export 'src/components/todo.dart';
+export 'src/enum/method_type.dart';
 export 'src/icalendar.dart';
 export 'src/models/craweled_parameter.dart';
 export 'src/models/crawled_block.dart';

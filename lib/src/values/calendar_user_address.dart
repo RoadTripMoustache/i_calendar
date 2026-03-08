@@ -24,5 +24,5 @@ class CalendarUserAddressValue extends CalendarValue<String> {
 
 class CalendarUserAddressParameterValue extends CalendarUserAddressValue
     with CalendarParameterValue {
-  CalendarUserAddressParameterValue(String email) : super(email);
+  CalendarUserAddressParameterValue(super.email);
 }
