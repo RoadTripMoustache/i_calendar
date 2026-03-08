@@ -1,4 +1,4 @@
-# ICalendar 
+# I_Calendar
 
 > Code based on https://gitlab.com/powerbuilding/opensource/mobile/support-libraries/icalendar-dart
 > 
